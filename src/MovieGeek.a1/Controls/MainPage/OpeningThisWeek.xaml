@@ -1,0 +1,244 @@
+﻿<UserControl xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:MovieGeek.a1.Controls"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             xmlns:eim="clr-namespace:Microsoft.Expression.Interactivity.Media;assembly=Microsoft.Expression.Interactions"
+             x:Class="MovieGeek.a1.Controls.MainPage.OpeningThisWeek"
+             mc:Ignorable="d"
+             d:DesignWidth="480"
+             d:DesignHeight="320"
+             Tag="{Binding ImdbUrl}"
+             Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+        <Storyboard x:Name="Loaded"
+                    RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.GlobalOffsetX)"
+                                           Storyboard.TargetName="background">
+                <EasingDoubleKeyFrame KeyTime="0"
+                                      Value="-420" />
+                <EasingDoubleKeyFrame KeyTime="0:0:1"
+                                      Value="420">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <ExponentialEase EasingMode="EaseInOut" />
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="Update">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="poster">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0.583">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <ExponentialEase EasingMode="EaseInOut" Exponent="4"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0.845">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <ExponentialEase EasingMode="EaseInOut" Exponent="4"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <ExponentialEase EasingMode="EaseInOut" Exponent="4"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="poster">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-0.583">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <ExponentialEase EasingMode="EaseInOut" Exponent="4"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="-0.845">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <ExponentialEase EasingMode="EaseInOut" Exponent="4"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <ExponentialEase EasingMode="EaseInOut" Exponent="4"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="poster">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-0.333">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <ExponentialEase EasingMode="EaseInOut" Exponent="4"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="-0.333">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <ExponentialEase EasingMode="EaseInOut" Exponent="4"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <ExponentialEase EasingMode="EaseInOut" Exponent="4"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="poster">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="75.626">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <ExponentialEase EasingMode="EaseInOut" Exponent="4"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="-47.91">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <ExponentialEase EasingMode="EaseInOut" Exponent="4"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <ExponentialEase EasingMode="EaseInOut" Exponent="4"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)" Storyboard.TargetName="textBlock">
+                <EasingPointKeyFrame KeyTime="0" Value="0,0"/>
+                <EasingPointKeyFrame KeyTime="0:0:0.1" Value="0.5,0.5"/>
+                <EasingPointKeyFrame KeyTime="0:0:0.2" Value="0.5,0.5"/>
+            </PointAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="textBlock">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="-1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)" Storyboard.TargetName="stackPanel">
+                <EasingPointKeyFrame KeyTime="0:0:0.2" Value="0,0"/>
+                <EasingPointKeyFrame KeyTime="0:0:0.3" Value="0.5,0.5"/>
+                <EasingPointKeyFrame KeyTime="0:0:0.4" Value="0.5,0.5"/>
+            </PointAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="stackPanel">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)" Storyboard.TargetName="textBlock1">
+                <EasingPointKeyFrame KeyTime="0:0:0.4" Value="0,0"/>
+                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="0.5,0.5"/>
+                <EasingPointKeyFrame KeyTime="0:0:0.6" Value="0.5,0.5"/>
+            </PointAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="textBlock1">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot" Tap="LayoutRoot_Tap">
+        <!--<Grid.Clip>
+            <RectangleGeometry Rect="0,0,480,320"></RectangleGeometry>
+        </Grid.Clip>-->
+        <i:Interaction.Triggers>
+            <i:EventTrigger EventName="Loaded">
+                <eim:ControlStoryboardAction Storyboard="{StaticResource Loaded}" />
+            </i:EventTrigger>
+        </i:Interaction.Triggers>
+        <controls:Background Clip="{Binding Clip, ElementName=background}"
+                             x:Name="background">
+            <controls:Background.Projection>
+                <PlaneProjection />
+            </controls:Background.Projection>
+        </controls:Background>
+        <StackPanel Margin="12">
+            <TextBlock Text="{Binding Group, Converter={StaticResource ToLowerConverter}}"
+                       Style="{StaticResource HeaderTextBlock}" />
+            <StackPanel Orientation="Horizontal">
+                <controls:Poster x:Name="poster" Style="{StaticResource PosterFormFactor}" RenderTransformOrigin="0.5,0.5" >
+                	<controls:Poster.RenderTransform>
+                		<CompositeTransform/>
+                	</controls:Poster.RenderTransform>
+                    <controls:Poster.Projection>
+                        <PlaneProjection/>
+                    </controls:Poster.Projection>
+                </controls:Poster>
+                <Grid Margin="6,0" />
+                <StackPanel x:Name="stackPanel1" RenderTransformOrigin="0.5,0.5">
+                	<StackPanel.RenderTransform>
+                		<CompositeTransform/>
+                	</StackPanel.RenderTransform>
+                    <Grid>
+                        <Grid x:Name="PlaceHolder" d:IsHidden="True">
+                            <StackPanel>
+                                <Rectangle Style="{StaticResource PlaceHolder}"
+                                           Width="240" />
+                                <Rectangle Style="{StaticResource PlaceHolder}"
+                                           Width="168" />
+                            </StackPanel>
+                        </Grid>
+                        <StackPanel>
+                            <!--#############################-->
+                            <!--TITLE-->
+                            <!--#############################-->
+                            <TextBlock x:Name="textBlock" 
+                                       Text="{Binding Title,Converter={StaticResource TitleConverter}}"
+                                       Width="216"
+                                       Foreground="{StaticResource PhoneAccentBrush}"
+                                       FontSize="{StaticResource PhoneFontSizeMediumLarge}"
+                                       TextWrapping="Wrap"
+                                       LayoutUpdated="textBlock_LayoutUpdated">
+                            	<TextBlock.RenderTransform>
+                            		<CompositeTransform/>
+                            	</TextBlock.RenderTransform>
+                                <TextBlock.Projection>
+                                    <PlaneProjection/>
+                                </TextBlock.Projection>
+                            </TextBlock>
+                            <StackPanel x:Name="stackPanel" Orientation="Horizontal">
+                            	<StackPanel.RenderTransform>
+                            		<CompositeTransform/>
+                            	</StackPanel.RenderTransform>
+                                <StackPanel.Projection>
+                                    <PlaneProjection/>
+                                </StackPanel.Projection>
+                                <!--#############################-->
+                                <!--MPAA RATING-->
+                                <!--#############################-->
+                                <TextBlock Text="{Binding MpaaRating}"
+                                           Foreground="{Binding MpaaRatingBrush}" />
+                                <TextBlock Text=" " Visibility="{Binding MpaaRating, Converter={StaticResource VisibilityConverter}}"/>
+                                <!--#############################-->
+                                <!--RUNTIME-->
+                                <!--#############################-->
+                                <TextBlock Text="{Binding Runtime, Converter={StaticResource RuntimeConverter}}" />
+                                <TextBlock Text=" " Visibility="{Binding MpaaRating, Converter={StaticResource VisibilityConverter}}"/>
+                                <StackPanel DataContext="{Binding Rating}">
+                                    <Grid DataContext="{Binding ImdbRating}">
+                                        <Grid DataContext="{Binding MetaCritic}">
+                                            <TextBlock Text="{Binding MetaScore}"
+                                            Foreground="{Binding MetaScoreBrush}"/>
+                                        </Grid>
+                                    </Grid>
+                                </StackPanel>
+                            </StackPanel>
+                            <!--<StackPanel Orientation="Horizontal">
+                                <TextBlock Text="by" Visibility="{Binding Directors, Converter={StaticResource VisibilityConverter}}"/>
+                                -->
+                            <!--#############################-->
+                            <!--DIRECTORS-->
+                            <!--#############################-->
+                            <!--
+                                <TextBlock DataContext="{Binding Directors}" Text="{Binding Name, Converter={StaticResource CastsConverter}}"/>
+                            </StackPanel>-->
+                            <!--#############################-->
+                            <!--SYNOPSIS-->
+                            <!--#############################-->
+                            <TextBlock x:Name="textBlock1" Text="{Binding Synopsis}" Foreground="{StaticResource PhoneDisabledBrush}" TextWrapping="Wrap" Width="216" MaxHeight="84" TextTrimming="WordEllipsis" FontStyle="Italic">
+                            	<TextBlock.RenderTransform>
+                            		<CompositeTransform/>
+                            	</TextBlock.RenderTransform>
+                            </TextBlock>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

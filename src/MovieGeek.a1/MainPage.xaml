@@ -1,0 +1,84 @@
+﻿<phone:PhoneApplicationPage x:Class="MovieGeek.a1.MainPage"
+                            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                            xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+                            xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+                            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                            xmlns:mainPage="clr-namespace:MovieGeek.a1.Controls.MainPage"
+                            mc:Ignorable="d"
+                            xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+                            FontFamily="{StaticResource PhoneFontFamilyNormal}"
+                            FontSize="{StaticResource PhoneFontSizeNormal}"
+                            Foreground="{StaticResource PhoneForegroundBrush}"
+                            SupportedOrientations="Portrait"
+                            Orientation="Portrait"
+                            shell:SystemTray.IsVisible="False">
+
+    <Grid x:Name="LayoutRoot"
+          Background="{StaticResource PhoneChromeBrush}">
+        <phone:Panorama Title="movie geek">
+
+            <phone:PanoramaItem Header="titles"
+                                Style="{StaticResource FixedMarginPanoramaItem}">
+                <Grid Style="{StaticResource FixedMarginGrid}">
+                    <ScrollViewer>
+                        <StackPanel>
+                            <TextBlock Text="opening this week" 
+                                       Style="{StaticResource HeaderTextBlock}"
+                                       Foreground="{StaticResource PhoneInactiveBrush}"/>
+                            <Grid Style="{StaticResource FeatureGrid}">
+                                <mainPage:OpeningThisWeek x:Name="OpeningThisWeek" Tap="OpeningThisWeek_Tap" toolkit:TiltEffect.IsTiltEnabled="True"/>
+                            </Grid>
+
+                            <TextBlock Text="in theaters" 
+                                       Style="{StaticResource HeaderTextBlock}"
+                                       Foreground="{StaticResource PhoneInactiveBrush}"/>
+                            <Grid Style="{StaticResource FeatureGrid}">
+                                <mainPage:InTheaters x:Name="InTheaters" Tap="InTheaters_Tap" toolkit:TiltEffect.IsTiltEnabled="True"/>
+                            </Grid>
+                            <Grid x:Name="PlaceHolder" Height="48"/>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </phone:PanoramaItem>
+
+            <phone:PanoramaItem Header="stars"
+                                Style="{StaticResource FixedMarginPanoramaItem}" 
+                                Loaded="PanoramaItem_Loaded">
+                <phone:LongListSelector x:Name="CastsList">
+                    <phone:LongListSelector.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="{Binding PotraitUri}"/>
+                                <StackPanel Margin="6">
+                                    <TextBlock Text="{Binding Name}" 
+                                               FontSize="{StaticResource PhoneFontSizeMediumLarge}"
+                                               Foreground="{StaticResource PhoneAccentBrush}"/>
+                                    <TextBlock Text="{Binding Affiliation}"/>
+                                    <!--<StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="known for" Visibility="{Binding KnownFor, Converter={StaticResource VisibilityConverter}}"/>
+                                        <TextBlock Text="{Binding KnownFor}"/>
+                                    </StackPanel>-->
+                                    <TextBlock Text="{Binding Bio}" TextWrapping="Wrap"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </phone:LongListSelector.ItemTemplate>
+                </phone:LongListSelector>
+            </phone:PanoramaItem>
+
+            <phone:PanoramaItem Header="news"
+                                Style="{StaticResource FixedMarginPanoramaItem}">
+                <Grid />
+            </phone:PanoramaItem>
+        </phone:Panorama>
+    </Grid>
+
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar Opacity="0.0">
+            <shell:ApplicationBarIconButton Text="lookup"
+                                            IconUri="/Assets/AppBar/feature.search.png" Click="ApplicationBarIconButton_Click" />
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+</phone:PhoneApplicationPage>
